@@ -1,0 +1,43 @@
+# MYSQL修改超时时长
+
+打开MySQL的控制台，运行:show variables like ‘%timeout%’，查看和连接时间有关的MySQL系统变量
+
+设置下即可
+
+| 代码如下                                                     |      |
+| ------------------------------------------------------------ | ---- |
+| 1mysql> show variables like ‘%timeout’;2+—————————-+——-+  \| Variable_name \| Value \|  +—————————-+——-+  \| connect_timeout \| 15 \|  \| delayed_insert_timeout \| 300 \|  \| innodb_lock_wait_timeout \| 50 \|  \| innodb_rollback_on_timeout \| OFF \|  \| interactive_timeout \| 28800 \|  \| net_read_timeout \| 30 \|  \| net_write_timeout \| 60 \|  \| slave_net_timeout \| 3600 \|  \| table_lock_wait_timeout \| 50 \|  \| wait_timeout \| 15 \|  +—————————-+——-+  10 rows in set (0.00 sec) |      |
+
+**直接设置wait_timeout 时长**
+
+| 代码如下                                                     |      |
+| ------------------------------------------------------------ | ---- |
+| 1mysql> set wait_timeout = 36000;  Query OK, 0 rows affected (0.00 sec)2mysql> set interactive_timeout = 36000;  Query OK, 0 rows affected (0.00 sec)3mysql> show variables like ‘%timeout’;4  +—————————-+——-+  \| Variable_name \| Value \|  +—————————-+——-+  \| connect_timeout \| 15 \|  \| delayed_insert_timeout \| 300 \|  \| innodb_lock_wait_timeout \| 50 \|  \| innodb_rollback_on_timeout \| OFF \|  \| interactive_timeout \| 36000 \|  \| net_read_timeout \| 30 \|  \| net_write_timeout \| 60 \|  \| slave_net_timeout \| 3600 \|  \| table_lock_wait_timeout \| 50 \|  \| wait_timeout \| 36000 \|  +—————————-+——-+  10 rows in set (0.00 sec) |      |
+
+
+本人觉得最简单的办法，就是对症下药：既然问题是由mysql5的全局变量wait_timeout的缺省值太小引起的，我们将其改大就好了。
+
+查看mysql5的手册，发现对wait_timeout的最大值分别是24天/365天(windows/[linux](http://www.111cn.net/list-156/))。以windows为 例，假设我们要将其设为21天，我们只要修改mysql5的配置文件“my.ini”(mysql5 installation dir)，增加一行：
+
+[mysqld]
+
+
+
+| 代码如下                                              |      |
+| ----------------------------------------------------- | ---- |
+| 1wait_timeout=31536000  interactive_timeout=315360002 |      |
+
+ 
+
+
+
+需要重新启动mysql5。
+
+linux系统配置文件：/etc/my.cnf
+
+测试显示问题解决了。
+
+
+
+参考[MYSQL连接超时问题解决办法](http://www.111cn.net/database/mysql/53567.htm)
+
