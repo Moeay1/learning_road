@@ -16,7 +16,7 @@ tag是对一个commit ID的引用。通常用于给开发分支做一个标记�
 
 ###### 4. 提交标签到远程仓库
 
-`git push origin -tags`
+`git push origin --tags`
 
 > 注: 就像`git push origin master`把本地修改提交到远程仓库一样, `-tags`可以把本地打的标签全部提交到远程仓库
 
