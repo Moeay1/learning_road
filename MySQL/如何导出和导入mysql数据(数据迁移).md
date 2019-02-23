@@ -41,8 +41,6 @@
 >2、然后执行相关命令导入数据。
 >`mysql> use dbtest; `//设置当前要导入数据的dbtest数据库 
 >
->`mysql> set names utf8;` //设置编码 
->
 >`mysql> source D:\db.sql; `//导入数据ok，完成。
 >
 >当然数据库备份用Mysql Administrator是非常方便的
