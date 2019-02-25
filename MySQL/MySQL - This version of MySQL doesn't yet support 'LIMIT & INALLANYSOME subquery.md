@@ -1,0 +1,33 @@
+##### 1. 使用JOIN连接查询
+
+> ```
+> SELECT v.VID, v.thumb
+> FROM video AS v
+> INNER JOIN
+>      (SELECT VID
+>      FROM video
+>      WHERE title LIKE "%'.$Channel['name'].'%"
+>      ORDER BY viewtime DESC
+>      LIMIT 5) as v2
+>   ON v.VID = v2.VID
+> ORDER BY RAND()
+> LIMIT 1
+> ```
+
+##### 2. 双重子查询
+
+> ```
+> $Last_Video = $db->fetch_all('
+>     SELECT VID, thumb
+>     FROM video
+>     WHERE VID IN (select * from (
+>         SELECT VID
+>         FROM video
+>         WHERE title LIKE "%'.$Channel['name'].'%"
+>         ORDER BY viewtime DESC
+>         LIMIT 5) temp_tab)
+>     ORDER BY RAND()
+>     LIMIT 1
+> ');
+> ```
+
