@@ -14,9 +14,9 @@
     ssh-copy-id root@spider-003
     ```
 
-  + 安装与开发环境版本一直的nodejs, 参考 [Centos7 安装Nodejs](https://www.jianshu.com/p/7d3f3fa056e8)
+  + 安装与开发环境版本一致的nodejs, 参考 [Centos7 安装Nodejs](https://www.jianshu.com/p/7d3f3fa056e8)
 
-  + 安装与开发环境版本一直的python, 使用miniconda, pip源改成清华, 并且软连接到`/usr/bin/python3` 和 `/usr/bin/pip3`, 并根据项目创建不同的虚拟环境
+  + 安装与开发环境版本一致的python, 使用miniconda, pip源改成清华, 并且软连接到`/usr/bin/python3` 和 `/usr/bin/pip3`, 并根据项目创建不同的虚拟环境
 
   + github项目上
 
