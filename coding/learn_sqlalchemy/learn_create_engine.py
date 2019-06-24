@@ -12,8 +12,8 @@ conn1 = engine.connect()
 conn2 = engine.connect()
 conn3 = engine.connect()
 conn4 = engine.connect()
-conn5 = engine.connect()
-
+# conn5 = engine.connect()
+print(111)
 time.sleep(30)
 
 # 连接---每次使用时建立连接

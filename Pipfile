@@ -1,6 +1,6 @@
 [[source]]
 name = "pypi"
-url = "https://pypi.org/simple"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 verify_ssl = true
 
 [dev-packages]
@@ -8,6 +8,17 @@ verify_ssl = true
 [packages]
 sqlalchemy = "*"
 mysqlpy = "*"
+requests = "*"
+redis = "==3.2.1"
+webargs = "*"
+flask = "*"
+schedule = "*"
+apscheduler = "*"
+celery = "*"
+flower = "*"
+flask-socketio = "==4.0.0"
+eventlet = "*"
+docker = "*"
 
 [requires]
 python_version = "3.6"
