@@ -19,6 +19,8 @@ flower = "*"
 flask-socketio = "==4.0.0"
 eventlet = "*"
 docker = "*"
+paramiko = "*"
+psutil = "*"
 
 [requires]
 python_version = "3.6"
