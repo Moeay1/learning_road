@@ -21,6 +21,7 @@ eventlet = "*"
 docker = "*"
 paramiko = "*"
 psutil = "*"
+elasticsearch = "==6.4.0"
 
 [requires]
 python_version = "3.6"
